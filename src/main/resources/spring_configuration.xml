@@ -11,42 +11,42 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.springframework.org/schema/tx
 http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="org.example."/>
+    <context:component-scan base-package="org.example"/>
 
     <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/example;create=true"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/myDb"/>
         <property name="username" value="root"/>
         <property name="password" value=""/>
     </bean>
 
-<!--    <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.Hibernate"/>-->
+    <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
 
-<!--    <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
-<!--        <property name="persistenceUnitName" value="examplePersistence"/>-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--        <property name="persistenceXmlLocation" value="resources"/>-->
-<!--        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>-->
-<!--        <property name="jpaDialect" ref="jpaDialect"/>-->
-<!--        <property name="jpaProperties">-->
-<!--            <props>-->
-<!--                <prop key="hibernate.hbm2ddl.auto">validate</prop>-->
-<!--                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+    <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="examplePersistence"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceXmlLocation" value="resources"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <property name="jpaDialect" ref="jpaDialect"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 
-<!--            </props>-->
-<!--        </property>-->
-<!--    </bean>-->
+            </props>
+        </property>
+    </bean>
 
-<!--    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
-<!--    </bean>-->
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+    </bean>
 
-<!--    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
-<!--        <property name="entityManagerFactory" ref="entityManagerFactory"/>-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--        <property name="jpaDialect" ref="jpaDialect"/>-->
-<!--    </bean>-->
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaDialect" ref="jpaDialect"/>
+    </bean>
 
-<!--    <tx:annotation-driven transaction-manager="txManager"/>-->
+    <tx:annotation-driven transaction-manager="txManager"/>
 
 
 </beans>
