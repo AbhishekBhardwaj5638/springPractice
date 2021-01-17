@@ -1,0 +1,10 @@
+org/example/consumer/BroadcastConsumer.class
+org/example/domain/MyXMlMessage.class
+org/example/producer/BroadcastProducer.class
+org/example/simple/Receiver.class
+org/example/simple/ReceiverConfig.class
+org/example/simple/Sender.class
+org/example/App.class
+org/example/producer/BroadcastProducer$1.class
+org/example/simple/SenderConfig.class
+org/example/domain/MyXMlMessage$MyXMlMessageBuilder.class
